@@ -19,6 +19,7 @@ class View : Form {
         ClientSize = new Size(Square * Game.Size, Square * Game.Size);
         StartPosition = FormStartPosition.CenterScreen;
         setTitle();
+        
     }
     
     void setTitle() {
@@ -32,10 +33,11 @@ class View : Form {
         lastMove = players[game.turn].chooseMove(game);
         wasCapture = game.move(lastMove);
         Invalidate();
+      
     }
     
     void highlight(Graphics g, int x, int y) {
-        Pen highlight = new Pen(Color.Green, 4);
+        Pen highlight = new Pen(Color.White, 4);
         g.DrawRectangle(highlight, Square * x, Square * y, Square, Square);
     }
     
@@ -51,7 +53,7 @@ class View : Form {
                                     Square * x + 4, Square * y + 4, Square - 8, Square - 8);
                 if (lastMove != null && wasCapture &&
                     x == lastMove.to.x && y == lastMove.to.y) {
-                        Pen p = new Pen(Color.DarkGray, 4);
+                        Pen p = new Pen(Color.White, 4);
                         g.DrawLine(p, Square * x + 4, Square * y + 4,
                                       Square * (x + 1) - 4, Square * (y + 1) - 4);
                         g.DrawLine(p, Square * x + 4, Square * (y + 1) - 4,
@@ -114,8 +116,28 @@ class View : Form {
             Invalidate();
         }
     }
-    
+
+    private void InitializeComponent()
+    {
+            this.SuspendLayout();
+            // 
+            // View
+            // 
+            this.ClientSize = new System.Drawing.Size(282, 245);
+            this.Name = "View";
+            this.Load += new System.EventHandler(this.View_Load);
+            this.ResumeLayout(false);
+        
+
+    }
+
+    private void View_Load(object sender, System.EventArgs e)
+    {
+
+    }
+
     public static void run(Game game, Player[] players) {
+
         Application.Run(new View(game, players));
     }
 }

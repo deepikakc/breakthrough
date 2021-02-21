@@ -16,5 +16,9 @@
     <Compile Include="util.cs" />
     <Compile Include="view_winforms.cs" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="view_winforms.resx" />
+  </ItemGroup>
 
 </Project>

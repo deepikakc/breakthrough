@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-
 using static System.Console;
 using static System.Math;
 
@@ -12,6 +11,8 @@ class Pos {
     
     public override string ToString() => $"({x}, {y})";
 }
+
+
 
 class Move {
     public Pos from, to;

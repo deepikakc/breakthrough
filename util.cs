@@ -4,7 +4,7 @@ using System;
 // to ensure that simulation results will be identical in any C# runtime.
 class SRandom {
     int n;
-    
+   
     public SRandom(int seed) {
         n = seed >= 0 ? seed : (int) DateTime.Now.Ticks;
     }

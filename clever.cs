@@ -11,7 +11,7 @@ class Clever : Player {
     
     public Move chooseMove(Game game) {
         List<Move> possibleMoves = game.possibleMoves();
-        
+
         if (game.moves < 2) {  // my first move
             int count = possibleMoves.Count;
             int index = game.seed >= 0 ? game.seed % count : game.random.next(count);
